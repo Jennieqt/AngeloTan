@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Poem</title>
+    <style>
+        body{
+            background-image: url(./yam.jpg);
+            background-position: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .heart {
+            position: absolute;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #poem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: #F9A7B0;
+        }
+
+        #poem p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    </style>
+    <script>
+        function displayPoem() {
+            document.getElementById("poem").innerHTML = `
+                <p>When I'm with you, my heart takes flight,</p>
+                <p>As we explore the world, hand in hand, so bright.</p>
+                <p>Your smile, your laughter, your gentle touch,</p>
+                <p>Make my heart race and my soul rush.</p>
+                <p>In your arms, I feel safe and secure,</p>
+                <p>Your love is the cure for all that's impure.</p>
+                <p>With every moment, I spend with you,</p>
+                <p>My love grows stronger, deeper, and true.</p>
+                <p>You are the light that guides my way,</p>
+                <p>My love for you will never stray.</p>
+                <p>So let's hold hands and never let go,</p>
+                <p>Together, we'll weather any storm, I know.</p>
+            `;
+            document.querySelector('button').style.display = 'none';
+            // Create heart elements and append them to the body
+            const heartCount = 20;
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "&#10084;"; // heart symbol
+                heart.style.left = Math.random() * 100 + "%";
+                heart.style.top = Math.random() * 100 + "%";
+                heart.style.fontSize = Math.random() * 20 + 10 + "px";
+                document.body.appendChild(heart);
+            }
+        }
+    </script>
+</head>
+<body id="body">
+    <div id="poem"></div>
+    <button onclick="displayPoem()">Click Here</button>
+</body>
+</html>
